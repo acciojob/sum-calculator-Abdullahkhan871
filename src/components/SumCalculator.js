@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const SumCalculator = () => {
-	const [sum, setSum] = useState(0)
-	useEffect(() => {
-		console.log(sum)
-	}, [sum])
-	return (
-		<div>
-			<h1>Sum Calculator</h1>
-			<input
-				type="number"
-				onChange={(e) => setSum( pre => (pre + (Number(e.target.value))))}
-			/>
-			<p>Sum: {sum}</p>
-		</div>
-	)
-}
+  const [vlv, setVlv] = useState(0);
+  const [sum, setSum] = useState(0);
 
-export default SumCalculator
+  useEffect(() => {
+    setSum((pre) => pre + Number(vlv));
+    console.log("sum ", sum, "vlv", vlv);
+  }, [vlv]);
+
+  return (
+    <div>
+      <h1>Sum Calculator</h1>
+      <input
+        type="number"
+        value={vlv}
+        onChange={(e) => setVlv(e.target.value)}
+      />
+      <p>Sum: {sum}</p>
+    </div>
+  );
+};
+
+export default SumCalculator;
